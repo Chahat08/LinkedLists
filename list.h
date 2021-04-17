@@ -23,4 +23,7 @@ struct Node
 
 	// parameter: given the pointer to the list, prints the list from that node to the end
 	void printList(Node*);
+
+	// parameters: takes the head of current list, returns reversed list
+	Node* reverseList(Node*);
 };

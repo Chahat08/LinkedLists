@@ -26,3 +26,17 @@ void Node::printList(Node* n)
 		cout << node->val << "->";
 	cout << "null" << endl;
 }
+
+Node* Node::reverseList(Node* n)
+{
+	Node* reverse = nullptr, * processed, * unprocessed;
+
+	for (processed = n; processed != nullptr; processed = unprocessed)
+	{
+		unprocessed = processed->next;
+		processed->next = reverse;
+		reverse = processed;
+	}
+
+	return reverse;
+}

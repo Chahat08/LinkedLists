@@ -10,7 +10,8 @@ int main()
 	head->insertNext(n1, 3);
 	head->insertNext(n1->next, 4);
 	head->printList(head);
-	head->deleteNext(n1);
-	head->printList(head);
+	// head->deleteNext(n1);
+	Node* reverse = head->reverseList(head);
+	head->printList(reverse);
 	return 0;
 }
