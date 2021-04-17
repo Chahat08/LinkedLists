@@ -1,7 +1,7 @@
 #include "list.h"
 #include <iostream>
 
-using std::cin; using std::cout;
+using std::cin; using std::cout; using std::endl;
 
 Node* Node::insertNext(Node* node, int val)
 {
@@ -16,7 +16,7 @@ Node* Node::insertNext(Node* node, int val)
 Node* Node::deleteNext(Node* n)
 {
 	n->next = n->next->next;
-	delete n->next;
+	// delete n->next;
 
 	return n;
 }
@@ -24,5 +24,5 @@ void Node::printList(Node* n)
 {
 	for (Node* node = n; node != nullptr; node = node->next)
 		cout << node->val << "->";
-	cout << "null";
+	cout << "null" << endl;
 }
