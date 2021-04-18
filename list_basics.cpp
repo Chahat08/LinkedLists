@@ -17,10 +17,12 @@ int main(int argc, char* argv[])
 		else if (i == 2) ss >> b;
 		else ss >> e;
 	}
-	cout << n << " " << e << " " << b << endl;
-	Node* l = l->randomList(n, e, b);
-	l->printList(l);
-	l->printList(l->insertionSort(l));
+
+	Node* lst = randomList(n, b, e);
+	printList(lst);
+	//cout << "back";
+	printList(insertionSort(lst));
+	//insertionSort(lst);
 
 	cout << "end";
 	return 0;

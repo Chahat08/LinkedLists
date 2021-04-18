@@ -22,19 +22,17 @@ struct Node
 	// parameter: current node, returns: current node after deletion of next
 	Node* deleteNext(Node*);
 
-	// parameters: takes an int representing the no. of nodes in the list
-	// two opt. ints specifying the range of nos.: beginning and end. (beginning inclusive, end exclusive)
-	// returns head to the random list
-	Node* randomList(int,int,int);
-
-	// parameter: given the pointer to the list, prints the list from that node to the end
-	void printList(Node*);
-
 	// parameters: takes the head of current list, returns head of reversed list
-	Node* reverseList(Node*);
-
-	// parameters: takes the head of current list, returns head of sorted list
-	Node* insertionSort(Node*);
-
-	
+	Node* reverseList(Node*);	
 };
+
+// parameters: takes an int representing the no. of nodes in the list
+// two opt. ints specifying the range of nos.: beginning and end. (beginning inclusive, end exclusive)
+// returns head to the random list
+Node* randomList(int, int, int);
+
+// parameter: given the pointer to the list, prints the list from that node to the end
+void printList(Node*);
+
+// parameters: takes the head of current list, returns head of sorted list
+Node* insertionSort(Node*);

@@ -20,23 +20,14 @@ Node* Node::deleteNext(Node* n)
 
 	return n;
 }
-Node* Node::randomList(int n, int b = 0, int e = RAND_MAX)
-{
-	Node* node, *head = node;
-	for (int i = 0; i < n; ++i)
-	{
-		node->next = new Node((rand() % (e-b + 1)) + e);
-		node = node->next;
-	}
-	node = nullptr;
-
-	return head->next;
-}
-void Node::printList(Node* n)
+void printList(Node* n)
 {
 	for (Node* node = n; node != nullptr; node = node->next)
 		cout << node->val << "->";
+
 	cout << "null" << endl;
+
+	return;
 }
 
 Node* Node::reverseList(Node* n)
@@ -52,29 +43,35 @@ Node* Node::reverseList(Node* n)
 
 	return reverse;
 }
+Node* randomList(int n, int b = 0, int e = RAND_MAX)
+{
+	Node* node = new Node((rand() % (e - b + 1)) + b), * head = node;
 
-Node* Node::insertionSort(Node* n)
+	for (int i = 1; i < n; ++i)
+	{
+		node = (node->next = new Node((rand() % (e - b + 1)) + b));
+		node->next = nullptr;
+	}
+
+	return head;
+}
+Node* insertionSort(Node* n)
 {
 	// dummy head nodes
-	Node* a = n, * b, *x, *y, *t, *u;
-	b->next = nullptr;
-	b->next->val = INT_MIN;
+	Node* a = new Node(n), * b = new Node();
+
+	// pointers to process list
+	Node* x, *y, *t;
 
 	for (x = a->next; x != nullptr; x = y)
 	{
 		y = x->next;
 
-		for (t = b->next; t != nullptr; t = u)
-		{
-			u = t->next;
-			if (((x->val) >= (t->val)) && ((x->val) <= (t->next->val)))
-			{
-				a->next = x->next;
-				x->next = t->next;
-				t->next = x;
-			}
-		}
+		for (t = b; t->next != nullptr; t = t->next)
+			if (t->next->val > x->val) break;
 
+		x->next = t->next;
+		t->next = x;
 	}
 
 	return b->next;
